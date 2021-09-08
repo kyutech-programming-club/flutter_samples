@@ -7,49 +7,49 @@ class SlideButton extends StatefulWidget {
 
 class _SlideButtonState extends State<SlideButton> {
 
-  static const _alignments = [
-    Alignment.topLeft,
-    Alignment.topRight,
-  ];
-
-  var _index = 0;
-  AlignmentGeometry get _alignment => _alignments[_index % _alignments.length];
-
+  var _isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        onTap: (){
-          setState(() {
-            _index++;
-          });
-        },
-        child: Stack(
-          children: [
-            Container(
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          _isSelected = !_isSelected;
+        });
+      },
+      child: Stack(
+        children: [
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 2,left: 2,right: 2),
               alignment: Alignment.center,
               width: 50,
               height: 20,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(20),
-                color: _index % 2 == 1 ? Colors.greenAccent : Colors.white,
+                color: _isSelected ? Colors.greenAccent : Colors.white,
               ),
+            ),
+          ),
+          Center(
+            child: Container(
+              width: 55,
+              height: 25,
               child: AnimatedAlign(
-                alignment: _alignment,
+                alignment: _isSelected ? Alignment.topRight: Alignment.topLeft,
                 duration: const Duration(milliseconds: 200),
                 child: Container(
-                  width: 20,
-                  height: 20,
+                  width: 30,
+                  height: 30,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _index % 2 == 1 ? Colors.green : Colors.grey,
+                    color: _isSelected ? Colors.green : Colors.grey,
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
