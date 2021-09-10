@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
+  initializeDateFormatting('ja');
 }
 
 class MyApp extends StatelessWidget {
