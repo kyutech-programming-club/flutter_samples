@@ -1,16 +1,16 @@
 # flutter_samples
 
-A new Flutter application.
+プロ研216のFlutterサンプルリポジトリです
+* 
 
-## Getting Started
+## 新しくサンプルを作る流れ
+1. サンプル名のブランチを作成する
+2. そのブランチから作業ブランチを作成する
+3. 作業ブランチからサンプル名のブランチに対してPRを出す
+4. マージ後READMEにリンクを追加
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### ブランチ命名規則
+* サンプル　`dev/[サンプル名]`
+* 作業ブランチ `dev/[サンプル名]__[ユーザー名]`
+* READMEの更新 `doc/[サンプル名]`
+サンプル名は全てスネークケースで定義してください
