@@ -57,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () async {
           String selectedDate = await selectDate(context);
           setState(() {
-            date = selectedDate;
+            if (selectedDate != "") {
+              date = selectedDate;
+            }
           });
         },
         tooltip: 'Increment',
