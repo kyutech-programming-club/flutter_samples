@@ -56,11 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           String selectedDate = await selectDate(context);
-          setState(() {
-            if (selectedDate != "") {
+          if (selectedDate != "") {
+            setState(() {
               date = selectedDate;
-            }
-          });
+            });
+          }
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
