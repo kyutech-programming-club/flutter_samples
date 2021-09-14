@@ -18,3 +18,19 @@ Route createUpRoute() {
     },
   );
 }
+
+Route createZoomRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+       return ZoomPageTransitionsBuilder()
+           .buildTransitions(
+           MaterialPageRoute(builder: (context) => Page2()),
+           context,
+           animation,
+           secondaryAnimation,
+           child
+       );
+    },
+  );
+}
