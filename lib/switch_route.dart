@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_samples/page2.dart';
 
-Route createRoute() {
+Route createUpRoute() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
