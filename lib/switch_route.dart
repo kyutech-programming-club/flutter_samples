@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_samples/post.dart';
+import 'package:flutter_samples/page2.dart';
 
 Route createRoute() {
   return PageRouteBuilder(
