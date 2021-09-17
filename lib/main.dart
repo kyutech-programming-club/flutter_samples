@@ -29,33 +29,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Consumer<PostPageModel>(
+        builder: (context, model, child) {
+          List<Widget> posts = model.posts.map((e) {
+            Column(
+              children: [
+                Text(e['date']),
+                Text(e['text']),
+              ],
+            );
+          }).cast<Widget>().toList();
+
+          Widget postList = Column(children: posts);
+
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              return postList;
+            },
+            itemCount: posts.length,
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).push(createUpRoute()),
