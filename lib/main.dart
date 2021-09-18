@@ -55,8 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
             floatingActionButton: FloatingActionButton(
-              onPressed: () => model.post(myController.text),
-              tooltip: 'Increment',
+              onPressed: () async {
+                model.post(myController.text);
+                await model.getPostFromFirestore();
+                },
               child: Icon(Icons.add),
             ),
           );
