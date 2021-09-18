@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PostPageModel>(
-      create: (_) => PostPageModel(),
+      create: (_) => PostPageModel()..init(),
       child : MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
