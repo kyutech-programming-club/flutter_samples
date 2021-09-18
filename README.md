@@ -1,16 +1,17 @@
-# flutter_samples
+# Firebase
 
-A new Flutter application.
+Firebase Cloud Firestore の設定のブランチです
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+* 基本的な手順
+https://flutternyumon.com/configuring-firebase-for-android-app/#index_id5
 
-A few resources to get you started if this is your first Flutter project:
+* メソッド数エラー
+https://qiita.com/ruckyriver4655/items/4e091ce325e2d34429e6
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* kotlinのバージョンエラー
+https://stackoverflow.com/questions/43848845/errorexecution-failed-for-task-appcompiledebugkotlin-compilation-error
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* 公式URL
+https://firebase.flutter.dev/docs/firestore/usage/
