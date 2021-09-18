@@ -6,6 +6,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
+  initializeDateFormatting('ja');
   WidgetsFlutterBinding.ensureInitialized();
   // Firebase初期化
   await Firebase.initializeApp();
