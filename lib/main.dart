@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(title: 'Flutter Demo Home Page'),
+        home: MyHomePage(title: 'Post_text'),
       ),
     );
   }
@@ -46,20 +46,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Consumer<PostPageModel>(
         builder: (context, model, child) {
+
           List<Widget> posts = model.posts.map((e) {
-            Column(
-              children: [
-                Text(e['date']),
-                Text(e['text']),
-              ],
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Colors.black),
+                  )
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(e['date']),
+                  Text(
+                    e['text'],
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
             );
           }).cast<Widget>().toList();
 
-          Widget postList = Column(children: posts);
-
           return ListView.builder(
             itemBuilder: (context, index) {
-              return postList;
+              return posts[index];
             },
             itemCount: posts.length,
           );
