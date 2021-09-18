@@ -27,9 +27,10 @@ class PostPageModel extends ChangeNotifier {
   }
 
   Future post(String text) async {
+    final date = (DateFormat.yMMMEd('ja')).format(now);
     try {
       posts.add(<String, dynamic>{
-        'date': now,
+        'date': date,
         'text': text,
       });
       return users
