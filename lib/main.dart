@@ -45,8 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     Text(model.text),
-                    TextField(
-                      controller: myController,
+                    Container(
+                      width: 200,
+                      child: TextField(
+                        controller: myController,
+                      ),
                     ),
                   ],
                 )
