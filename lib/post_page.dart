@@ -16,29 +16,40 @@ class _PostPageState extends State<PostPage> {
       body: SafeArea(
         child: Consumer<PostPageModel>(
           builder: (context, model, child) {
-            return Column(
-              children: [
-                Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: Text("キャンセル"),
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        model.post(myController.text);
-                        await model.getPostFromFirestore();
-                        print(model.posts);
-                        Navigator.pop(context);
-                      },
-                      child: Text("投稿"),
-                    ),
-                  ],
-                ),
-                TextField(
-                  controller: myController,
-                )
-              ],
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: Text("キャンセル"),
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () async {
+                                model.post(myController.text);
+                                await model.getPostFromFirestore();
+                                print(model.posts);
+                                Navigator.pop(context);
+                              },
+                              child: Text("投稿"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  TextField(
+                    controller: myController,
+                  )
+                ],
+              ),
             );
           },
         ),
