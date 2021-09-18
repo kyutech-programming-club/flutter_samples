@@ -45,10 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            Consumer<FirebaseModel>(
-              builder: (context, model, child) {
-                return Text(model.text);
-              },
+            Text(context.select<FirebaseModel, String>
+              ((FirebaseModel model) => model.text),
             ),
             Container(
               width: 200,
