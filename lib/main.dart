@@ -32,25 +32,28 @@ class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(""),
-            TextField(
-              controller: myController,
+    return Consumer<FirebaseModel>(
+        builder: (context, model, child) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(widget.title),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
+            body: Center(
+                child: Column(
+                  children: [
+                    Text(model.text),
+                    TextField(
+                      controller: myController,
+                    ),
+                  ],
+                )
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () => model.post(myController.text),
+              tooltip: 'Increment',
+              child: Icon(Icons.add),
+            ),
+          );
+        });
   }
 }
