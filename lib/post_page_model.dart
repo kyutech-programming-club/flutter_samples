@@ -7,7 +7,7 @@ class PostPageModel extends ChangeNotifier {
   DateTime now = DateTime.now();
 
   final users = FirebaseFirestore.instance.collection('users');
-  List<Map<String, dynamic>> posts = [];
+  List<dynamic> posts = [];
 
   Future<void> init() async {
     await getPostFromFirestore();
@@ -18,7 +18,7 @@ class PostPageModel extends ChangeNotifier {
     try {
       final doc = await users.doc(user).get();
       final data = doc.data();
-      posts = data!['posts'].cast<List<Map<String, dynamic>>>();
+      posts = data!['posts'];
       notifyListeners();
     } catch (e) {
       print(e);
