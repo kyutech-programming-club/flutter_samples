@@ -38,33 +38,34 @@ class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Consumer<FirebaseModel>(
-        builder: (context, model, child) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(widget.title),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Consumer<FirebaseModel>(
+              builder: (context, model, child) {
+                return Text(model.text);
+              },
             ),
-            body: Center(
-                child: Column(
-                  children: [
-                    Text(model.text),
-                    Container(
-                      width: 200,
-                      child: TextField(
-                        controller: myController,
-                      ),
-                    ),
-                  ],
-                )
+            Container(
+              width: 200,
+              child: TextField(
+                controller: myController,
+              ),
             ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () async {
-                model.post(myController.text);
-                await model.getPostFromFirestore();
-                },
-              child: Icon(Icons.add),
-            ),
-          );
-        });
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          context.read<FirebaseModel>().post(myController.text);
+          await context.read<FirebaseModel>().getPostFromFirestore();
+        },
+        child: Icon(Icons.add),
+      ),
+    );
   }
 }
