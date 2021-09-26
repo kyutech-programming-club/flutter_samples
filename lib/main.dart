@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_samples/firebase_model.dart';
+import 'package:flutter_samples/main_model.dart';
 import 'package:provider/provider.dart';
+import 'type.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final type = context.select<MainModel, Types?>
+      ((MainModel model) => model.type);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -45,9 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            Text(context.select<FirebaseModel, String>
-              ((FirebaseModel model) => model.text),
-            ),
+            Text(type!.text),
             Container(
               width: 200,
               child: TextField(
