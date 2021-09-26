@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          context.read<FirebaseModel>().post(myController.text);
+          context.read<FirebaseModel>().postToFirebase('test', 'text', myController.text);
           await context.read<FirebaseModel>().getFromFirebase('test');
         },
         child: Icon(Icons.add),

@@ -23,14 +23,14 @@ class FirebaseModel extends ChangeNotifier {
     }
   }
 
-  Future post(String inputText) async {
+  Future postToFirebase(String collectionName, String fieldName, dynamic data) async {
+    final collection = FirebaseFirestore.instance.collection(collectionName);
     try {
-      text = inputText;
-      return test
+      return collection
           .doc(user)
           .set(
         <String, dynamic>{
-          'text': text
+          fieldName: data
         },
         SetOptions(merge: true),
       );
