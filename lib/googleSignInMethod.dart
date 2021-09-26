@@ -8,6 +8,7 @@ class GoogleSignInMethod {
   AuthCredential? credential;
 
   // Firebase 認証
+  final currentUser = FirebaseAuth.instance.currentUser;
   dynamic result;
   User? user;
 
@@ -39,4 +40,5 @@ class GoogleSignInMethod {
       print('${e.toString()}');
     }
   }
+
 }

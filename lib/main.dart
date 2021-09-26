@@ -67,6 +67,11 @@ class TestPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          print(GoogleSignInMethod().currentUser!.displayName);
+        },
+      ),
     );
   }
 }
