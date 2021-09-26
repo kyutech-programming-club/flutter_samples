@@ -13,8 +13,8 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  ChangeNotifierProvider<FirebaseModel>(
-        create: (_) => FirebaseModel()..init(),
+    return  ChangeNotifierProvider<MainModel>(
+        create: (_) => MainModel()..init(),
         child : MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
