@@ -42,6 +42,7 @@ class TestPage extends StatelessWidget {
                 ),
                 onPressed: () {
                   GoogleSignInMethod().googleSignIn();
+                  GoogleSignInMethod().currentUser.ph
                 },
               ),
             ),
