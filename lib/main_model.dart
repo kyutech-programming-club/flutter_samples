@@ -9,4 +9,9 @@ class MainModel extends ChangeNotifier {
     type = await getFromFirebase('test');
     notifyListeners();
   }
+
+  updateType() async {
+    type = await getFromFirebase('test');
+    notifyListeners();
+  }
 }
