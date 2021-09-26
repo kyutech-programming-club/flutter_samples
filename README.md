@@ -15,3 +15,9 @@ https://stackoverflow.com/questions/43848845/errorexecution-failed-for-task-appc
 
 * 公式URL
 https://firebase.flutter.dev/docs/firestore/usage/
+
+## Use
+
+1.type.dartのTypesクラスのように扱うデータの定義を行ってください。
+2.getFromFirebaseの受け取るデータ型を1で作ったクラスに変更してください。
+3.mainModel.dartのinit()のように1で作ったクラスの変数を作成し、代入して使ってください。
