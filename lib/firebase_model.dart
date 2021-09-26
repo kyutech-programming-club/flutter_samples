@@ -4,17 +4,16 @@ import 'package:flutter/cupertino.dart';
 class FirebaseModel extends ChangeNotifier {
   String user = "ゲスト";
 
-  final test = FirebaseFirestore.instance.collection('test');
-  String text = "";
-
   Future<void> init() async {
-    await getPostFromFirestore();
+    await getFromFirebase('test');
     notifyListeners();
   }
 
-  Future<void> getPostFromFirestore() async {
+  Future<void> getFromFirebase(String collectionName) async {
+    final collection = FirebaseFirestore.instance.collection(collectionName);
+    String text = "";
     try {
-      final doc = await test.doc(user).get();
+      final doc = await collection.doc(user).get();
       final data = doc.data();
       text = data!['text'];
       notifyListeners();
