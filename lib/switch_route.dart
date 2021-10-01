@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_samples/page2.dart';
 
-Route createUpRoute() {
+Route createUpRoute(Widget switchedPage, double speed) {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    pageBuilder: (context, animation, secondaryAnimation) => switchedPage,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0); // 変化量(速度)
+      Offset begin = Offset(0.0, speed); // 変化量(速度)
       const end = Offset.zero;
       const curve = Curves.ease; // アニメーションの種類
 
@@ -19,13 +18,13 @@ Route createUpRoute() {
   );
 }
 
-Route createZoomRoute() {
+Route createDefaultRoute(Widget switchedPage, dynamic defaultBuilder) {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    pageBuilder: (context, animation, secondaryAnimation) => switchedPage,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-       return ZoomPageTransitionsBuilder()
+       return defaultBuilder
            .buildTransitions(
-           MaterialPageRoute(builder: (context) => Page2()),
+           MaterialPageRoute(builder: (context) => switchedPage),
            context,
            animation,
            secondaryAnimation,

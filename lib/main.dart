@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_samples/page2.dart';
 import 'package:flutter_samples/switch_route.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(createUpRoute());
+          Navigator.of(context).push(createUpRoute(Page2(), 1.0));
         },
         child: Icon(Icons.add),
       ),
