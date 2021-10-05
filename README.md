@@ -2,8 +2,6 @@
 
 Firebase Cloud Firestore の設定のブランチです
 
-## Getting Started
-
 * 基本的な手順
 https://flutternyumon.com/configuring-firebase-for-android-app/#index_id5
 
